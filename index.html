@@ -9,11 +9,21 @@
      just work. Or point this href at a hosted image URL instead. -->
 <link rel="icon" href="favicon.ico">
 
+<!-- Warms up the connection to these domains ahead of time, which
+     shaves a little off the load time when a video swap happens. -->
+<link rel="preconnect" href="https://www.audimedia.tv">
+<link rel="preconnect" href="https://www.youtube.com">
+
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="stage"></div>
+
+<div id="loadingOverlay" class="hidden">
+  <div class="loading-dot"></div>
+  <div class="loading-text">Loading next video&hellip;</div>
+</div>
 
 <div id="startOverlay">
   <div class="brand">Audi</div>
@@ -23,6 +33,12 @@
     <p>Please put player in fullscreen or click F11</p>
   </div>
   <a class="browse-link" href="browse.html">Browse &amp; play a specific video</a>
+</div>
+
+<div id="controlBar" class="hidden">
+  <button id="skipButton" title="Skip to next video (Right Arrow)">Skip &#9654;</button>
+  <button id="exitButton" title="Exit fullscreen (Esc)">Exit Fullscreen</button>
+  <button id="stopButton" title="Stop and return to Start screen (Backspace)">&#9632; Back to Start</button>
 </div>
 
 <script src="playlist.js"></script>
