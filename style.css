@@ -1,0 +1,198 @@
+:root {
+  --audi-black: #0a0a0a;
+  --audi-red: #bb0a30;
+  --audi-white: #f5f5f5;
+  --audi-grey: #8a8a8a;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--audi-black);
+  color: var(--audi-white);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---------------- Player page (index.html) ---------------- */
+
+#stage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+
+#stage iframe,
+#stage > div {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.amc-container { width: 100%; height: 100%; }
+
+#startOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+  text-align: center;
+  padding: 24px;
+}
+
+#startOverlay .brand {
+  letter-spacing: 0.3em;
+  font-size: 14px;
+  color: var(--audi-grey);
+  text-transform: uppercase;
+}
+
+#startOverlay h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 600;
+  margin: 0;
+}
+
+#startButton {
+  padding: 16px 40px;
+  font-size: 20px;
+  font-weight: 600;
+  border: 2px solid var(--audi-red);
+  background: var(--audi-red);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+#startButton:hover { background: #93082578; }
+#startButton:active { transform: scale(0.97); }
+
+#startOverlay .fullscreen-note p {
+  margin: 0;
+  color: var(--audi-grey);
+  font-size: 16px;
+}
+
+#startOverlay .browse-link {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--audi-grey);
+  text-decoration: underline;
+}
+#startOverlay .browse-link:hover { color: var(--audi-white); }
+
+.hidden { display: none !important; }
+
+/* ---------------- Browse page ---------------- */
+
+.browse-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.browse-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 16px;
+}
+
+.browse-header h1 {
+  font-size: 26px;
+  margin: 0;
+}
+
+.browse-header a {
+  color: var(--audi-red);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+.browse-header a:hover { text-decoration: underline; }
+
+.browse-sub {
+  color: var(--audi-grey);
+  font-size: 14px;
+  margin: 8px 0 28px;
+}
+
+.video-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.video-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  background: #141414;
+  border-radius: 4px;
+}
+
+.video-row:hover { background: #1c1c1c; }
+
+.video-info { min-width: 0; }
+
+.video-title {
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.video-source {
+  font-size: 12px;
+  color: var(--audi-grey);
+  margin-top: 2px;
+}
+
+.video-badge {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--audi-grey);
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding: 2px 6px;
+  margin-right: 8px;
+}
+
+.play-btn {
+  flex-shrink: 0;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--audi-red);
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.play-btn:hover { background: #93082578; }

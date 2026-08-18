@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audi Showroom Reel — Browse</title>
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="browse-wrap">
+  <div class="browse-header">
+    <h1>Browse videos</h1>
+    <a href="index.html">&larr; Back to showroom loop</a>
+  </div>
+  <p class="browse-sub">
+    Click any video to play it immediately full-screen. When it finishes,
+    the player automatically continues into the normal random loop.
+  </p>
+
+  <ul class="video-list" id="videoList"></ul>
+</div>
+
+<script src="playlist.js"></script>
+<script>
+  const list = document.getElementById('videoList');
+  PLAYLIST.forEach(video => {
+    const li = document.createElement('li');
+    li.className = 'video-row';
+
+    const info = document.createElement('div');
+    info.className = 'video-info';
+
+    const title = document.createElement('div');
+    title.className = 'video-title';
+    title.textContent = video.title;
+
+    const source = document.createElement('div');
+    source.className = 'video-source';
+    source.textContent = video.source;
+
+    info.appendChild(title);
+    info.appendChild(source);
+
+    const badge = document.createElement('span');
+    badge.className = 'video-badge';
+    badge.textContent = video.type === 'youtube' ? 'YouTube' : 'Media Center';
+
+    const play = document.createElement('a');
+    play.className = 'play-btn';
+    play.href = 'index.html?play=' + encodeURIComponent(video.id);
+    play.textContent = 'Play';
+
+    const right = document.createElement('div');
+    right.style.display = 'flex';
+    right.style.alignItems = 'center';
+    right.appendChild(badge);
+    right.appendChild(play);
+
+    li.appendChild(info);
+    li.appendChild(right);
+    list.appendChild(li);
+  });
+</script>
+</body>
+</html>
