@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Audi Showroom Reel — Browse</title>
 <link rel="icon" href="favicon.ico">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
   <ul class="video-list" id="videoList"></ul>
 </div>
 
-<script src="playlist.js"></script>
+<script src="playlist.js?v=2"></script>
 <script>
   const list = document.getElementById('videoList');
   PLAYLIST.forEach(video => {
@@ -50,6 +50,8 @@
     const play = document.createElement('a');
     play.className = 'play-btn';
     play.href = 'index.html?play=' + encodeURIComponent(video.id);
+    play.target = '_blank';
+    play.rel = 'noopener';
     play.textContent = 'Play';
 
     const right = document.createElement('div');
